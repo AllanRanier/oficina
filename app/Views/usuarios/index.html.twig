@@ -1,0 +1,59 @@
+{% extends 'templates/base.html.twig'%}
+
+{% block content %}
+
+	<!-- Begin Page Content -->
+	<div
+		class="container-fluid">
+
+		<!-- Page Heading -->
+		<h1 class="h3 mb-2 text-gray-800">{{title}}</h1>
+        <div
+			class="row justify-content-end card-header py-3 ">
+			<a title="Cadastrar Novo Usuário" href="#" class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i>&nbsp;Novo</a>
+		</div>
+
+		<!-- DataTales Example -->
+		<div class="card shadow mb-4">
+			<div class="card-header py-3">
+				<h6 class="m-0 font-weight-bold text-primary">Tabela de Usuários</h6>
+			</div>
+
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>E-mail</th>
+								<th>Ativo</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							{% for row in usuarios %}
+								<tr>
+									<td>{{ row.username }}</td>
+									<td>{{ row.email }}</td>
+									<td>{{ row.active }}</td>
+									<td>
+										<a title="Editar" href="" class="btn btn-sm btn-primary">
+											<i class="fas fa-user-edit"></i>
+										</a>&nbsp;
+										<a title="Excluir" href="" class="btn btn-sm btn-danger">
+											<i class="fas fa-user-times"></i>
+										</a>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- /.container-fluid -->
+
+{% endblock %}

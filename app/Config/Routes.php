@@ -35,6 +35,9 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 
+$routes->get('/usuarios', 'Usuarios::index');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
