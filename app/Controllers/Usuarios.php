@@ -20,17 +20,4 @@ class Usuarios extends BaseController
 			'usuarios' => $Users,
 		]);
 	}
-
-	public function edit($user_id = NULL){
-		if (!$user_id || !$this->IonAuth->user($user_id)->row()) {
-			exit('Usuario não existe');
-		}else{
-			$data = array(
-				'titulo' => 'Editar Usuário',
-				'usuario' => $this->IonAuth->user($user_id)->row()
-			);
-		}
-
-		dd($data['usuario']); 
-	}
 }
