@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class Dashboard extends BaseController
 {
 	public function __contruct(){
 
@@ -10,6 +10,6 @@ class Home extends BaseController
 
 	public function index()
 	{
-		return $this->twig->render("home/index.html.twig");
+		return $this->twig->render("Dashboard/index.html.twig");
 	}
 }
