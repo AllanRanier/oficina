@@ -1,0 +1,293 @@
+{% extends 'templates/base.html.twig' %}
+
+{% block content %}
+    <div class="nk-block-head nk-block-head-sm">
+        <div class="nk-block-between">
+            <div class="nk-block-head-content">
+                <h3 class="nk-block-title page-title">{{ title }}</h3>
+            </div><!-- .nk-block-head-content -->
+            <div class="nk-block-head-content">
+                <div class="nk-block-head-content">
+                    <a href="{{ base_url('cliente') }}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em class="icon ni ni-arrow-left"></em><span>Voltar</span></a>
+                    <a href="{{ base_url('cliente') }}" class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em class="icon ni ni-arrow-left"></em></a>
+                </div>
+            </div><!-- .nk-block-head-content -->
+        </div><!-- .nk-block-between -->
+    </div><!-- .nk-block-head -->
+    <div class="nk-block">
+        <form method="post" action="{{ base_url('cliente/save') }}" name="form" id="form" class="form-validation">
+            <div class="card card-bordered">
+                <div class="card-content">
+                    <ul class="nav nav-tabs nav-tabs-mb-icon nav-tabs-card">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tab-main"><em class="icon ni ni-user-circle"></em><span>Dados Cadastrais</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tab-partners"><em class="icon ni ni-users-fill"></em><span>Sócios</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tab-finances"><em class="icon ni ni-coin-alt"></em><span>Financeiro</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tab-systems"><em class="icon ni ni-monitor"></em><span>Sistemas</span></a>
+                        </li>
+                        {# <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tab-documents"><em class="icon ni ni-file-docs"></em><span>Documentos</span></a>
+                        </li>                     #}
+                    </ul><!-- .nav-tabs -->
+                    <div class="card-inner">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab-main">
+                                <div class="row g-4">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label class="form-label">CNPJ</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control" id="cnpj" name="cnpj"  autocomplete="off" autofocus>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="form-group">
+                                            <label class="form-label">Razão Social</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control text-uppercase" id="razao_social"  autocomplete="off" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="form-group">
+                                            <label class="form-label">Nome Fantasia</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control text-uppercase" id="nome" name="nome" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-4">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Apelido</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control text-uppercase" id="apelido" name="apelido"value="{{ cliente is defined ? cliente.apelido : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Inscrição Estadual</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control text-uppercase" id="ie" name="ie" value="{{ cliente is defined ? cliente.ie : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Inscrição Municipal</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control text-uppercase" id="im" name="im" value="{{ cliente is defined ? cliente.im : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Regime de Tributação</label>
+                                            <div class="form-control-wrap">
+                                                <select class="form-control" name="regime_tributacao" id="regime_tributacao">
+                                                    <option value=""></option>
+                                                    <option value="1"{{ cliente is defined and cliente.regime_tributacao == 1 ? ' selected' : '' }}>Simples Nacional</option>
+                                                    <option value="2"{{ cliente is defined and cliente.regime_tributacao == 2 ? ' selected' : '' }}>Lucro Presumido</option>
+                                                    <option value="3"{{ cliente is defined and cliente.regime_tributacao == 3 ? ' selected' : '' }}>Lucro Real</option>
+                                                    <option value="4"{{ cliente is defined and cliente.regime_tributacao == 4 ? ' selected' : '' }}>Pessoa Física</option>
+                                                    <option value="5"{{ cliente is defined and cliente.regime_tributacao == 5 ? ' selected' : '' }}>IMUNE - ISENTA</option>
+                                                    <option value="6"{{ cliente is defined and cliente.regime_tributacao == 6 ? ' selected' : '' }}>MEI</option>
+                                                    <option value="7"{{ cliente is defined and cliente.regime_tributacao == 7 ? ' selected' : '' }}>Inativas</option>
+                                                    <option value="8"{{ cliente is defined and cliente.regime_tributacao == 8 ? ' selected' : '' }}>CEI</option>
+                                                    <option value="9"{{ cliente is defined and cliente.regime_tributacao == 9 ? ' selected' : '' }}>RET</option>
+                                                    <option value="10"{{ cliente is defined and cliente.regime_tributacao == 10 ? ' selected' : '' }}>Simples Nacional Sublimite ICMS e ISS</option>
+                                                    <option value="11"{{ cliente is defined and cliente.regime_tributacao == 11 ? ' selected' : '' }}>Empresa Rural</option>
+                                                </select>
+                                            </div>                                                                      
+                                        </div>                                    
+                                    </div>                                 
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="form-label">CEP</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control" id="cep" name="cep" value="{{ cliente is defined ? cliente.cep : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">   
+                                        <div class="form-group">
+                                            <label class="form-label">Logradouro</label>                                    
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control text-uppercase" id="logradouro" name="logradouro" value="{{ cliente is defined ? cliente.logradouro : '' }}" autocomplete="off">
+                                            </div>                                       
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">                                       
+                                            <div class="form-control-wrap">
+                                            <label class="form-label">Número</label>                                    
+                                                <input type="text" class="form-control" id="numero" name="numero" value="{{ cliente is defined ? cliente.numero : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>                                
+                                    </div>                                
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">                                       
+                                            <label class="form-label">Complemento</label>                                    
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control text-uppercase" id="complemento" name="complemento" value="{{ cliente is defined ? cliente.complemento : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>                                
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">                                       
+                                            <label class="form-label">Bairro</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control text-uppercase" id="bairro" name="bairro" value="{{ cliente is defined ? cliente.bairro : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Cidade</label>
+                                            <div class="form-control-wrap">
+                                                <select class="form-control text-uppercase" name="cidade_id" id="cidade_id">
+                                                    {% if cliente is defined %}
+                                                        <option value="{{ cliente.cidade_id }}">{{ cliente.cidade_nome }} - {{ cliente.cidade_uf }}</option>
+                                                    {% else %}
+                                                        <option value=""></option>
+                                                    {% endif %}                                                    
+                                                </select>
+                                            </div>
+                                        </div> 
+                                    </div>     
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Caixa Postal</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control" id="caixa_postal" name="caixa_postal" value="{{ cliente is defined ? cliente.caixa_postal : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>                           
+                                </div>
+                                <div class="row g-4">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Whatsapp</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control phone" id="telefones[1]" name="telefones[1]" value="{{ cliente is defined ? (cliente.telefones|json_decode).1 : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Telefone 1</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control phone" id="telefones[2]" name="telefones[2]" value="{{ cliente is defined ? (cliente.telefones|json_decode).2 : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Telefone 2</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control phone" id="telefones[3]" name="telefones[3]" value="{{ cliente is defined ? (cliente.telefones|json_decode).3 : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>                               
+                                </div>
+                                <div class="row g-4">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="form-label">E-mail</label>
+                                            <div class="form-control-wrap">
+                                                <input type="email" class="form-control" id="email" name="email" value="{{ cliente is defined ? cliente.email : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="form-label" for="capital_social">Capital Social</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control currency" id="capital_social" name="capital_social" value="{{ cliente is defined ? cliente.capital_social : '' }}" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="form-label" for="dt_ini_contrato">Data Inicial do Contrato</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control date-picker" id="dt_ini_contrato" name="dt_ini_contrato" value="{{ cliente is defined ? cliente.dt_ini_contrato : '' }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="form-label" for="dt_fim_contrato">Data Final do Contrato</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control date-picker" id="dt_fim_contrato" name="dt_fim_contrato" value="{{ cliente is defined ? cliente.dt_fim_contrato : '' }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-4">     
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-label" for="focal">Focal</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control text-uppercase" id="focal" name="focal" value="{{ cliente is defined ? cliente.focal : '' }}">
+                                            </div>
+                                        </div>
+                                    </div>                             
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-label" for="indicacao">Indicado por</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control text-uppercase" id="indicacao" name="indicacao" value="{{ cliente is defined ? cliente.indicacao : '' }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-label" for="indicacao">Segmento</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control text-uppercase" id="segmento" name="segmento" value="{{ cliente is defined ? cliente.segmento : '' }}">
+                                            </div>
+                                        </div>
+                                    </div>                               
+                                                                                          
+                                </div>
+                                <div class="row g-4">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="obs">Observação</label>
+                                            <div class="form-control-wrap">
+                                                <textarea class="form-control text-uppercase" rows="5" name="obs" id="obs">{{ cliente is defined ? cliente.obs : '' }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>                          
+                                </div>
+                            </div>
+                        </div><!-- .tab-content -->
+                    </div><!-- .card-inner -->
+                </div><!-- .card-content -->
+            </div><!-- .card -->
+            <div class="row">
+                <div class="col-md-12 mt-2">
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success btn-save" id="btn-save"><em class="icon ni ni-check-thick"></em><span>Salvar</span></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div><!-- .nk-block -->
+{% endblock %} 
