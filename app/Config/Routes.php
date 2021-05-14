@@ -37,6 +37,13 @@ $routes->get('/', 'AuthController::index');
 
 $routes->get('/dashboard', 'DashboardController::index');
 
+$routes->get('/clientes', 'ClienteController::index');
+
+$routes->get('/vendas', 'VendasController::index');
+
+$routes->get('/estoque', 'EstoqueController::index');
+
+$routes->get('/fornecedor', 'FornecedorController::index');
 
 $routes->get('/usuario', 'UsuariosController::index');
 $routes->get('/usuario/novo', 'UsuariosController::create');

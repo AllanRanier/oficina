@@ -16,10 +16,6 @@ class AddTipoUsuario extends Migration
 				'type' => 'VARCHAR',
 				'constraint' => '100',
 			],	
-			'uf' => [
-				'type' => 'VARCHAR',
-				'constraint' => '2',
-			],		
 		]);
 		$this->forge->addKey('id', true);
 		$this->forge->addKey('nome');
