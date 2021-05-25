@@ -47,6 +47,7 @@ $routes->get('/fornecedor', 'FornecedorController::index');
 
 $routes->get('/usuario', 'UsuariosController::index');
 $routes->get('/usuario/novo', 'UsuariosController::create');
+$routes->get('/usuario/save', 'UsuariosController::save');
 
 
 /*
