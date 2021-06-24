@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in (v2)</title>
+  <title>Sistema</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -19,14 +19,15 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+      <b class="h1"><img src="{{base_url('assets/img/logo.png')}}" width="300" height="200"></a>
+      <b class="h1">Acessar ao Sistema</b></a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Faça login para iniciar sua sessão</p>
+      {# <p class="login-box-msg">Faça login para iniciar sua sessão</p> #}
 
-      <form action="../../index3.html" method="post">
+      <form action="{{ base_url('Auth/logar') }}" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="E-mail">
+          <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,7 +35,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Senha">
+          <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -65,5 +66,21 @@
 <script src="{{base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{base_url('assets/js/adminlte.min.js')}}"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script type="text/javascript">
+    {% if session.warning_notice %}
+      {# alert('{{ session.warning_notice }}'); #}
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '{{ session.warning_notice }}',
+      })
+    {% endif %}			
+	</script>
+
+
+
 </body>
 </html>
