@@ -47,7 +47,9 @@ $routes->get('/fornecedor', 'FornecedorController::index');
 
 $routes->get('/usuario', 'UsuariosController::index');
 $routes->get('/usuario/novo', 'UsuariosController::create');
-$routes->get('/usuario/save', 'UsuariosController::save');
+$routes->post('/usuario/save', 'UsuariosController::save');
+$routes->get('/usuario/excluir/(:alphanum)', 'UsuariosController::delete/$1');
+$routes->get('/usuario/editar/(:alphanum)', 'UsuariosController::update/$1');
 
 
 /*

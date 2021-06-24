@@ -23,20 +23,23 @@
                                 <a class="btn btn-sm btn-primary" href="/usuario">Voltar</a>
                             </div>
                         </div>                 
-                        <form id="form" method="post" class="form-validate" action="{{base_url}}/save">
+                        <form id="form" method="post" class="form-validate" action="/UsuariosController/save">
                             <div class="card-body">
                                 {# <div class="form-row"> #}
                                     <div class="row g-4">
                                         <div class="col-lg-4">
                                             <div class="form-group">
+                                            	{% if usuario %}
+						                            <input type="hidden" name="id" value="{{ usuario.id }}"/>
+					                            {% endif %}
                                                 <label class="form-label" for="cnpj">Nome</label>
-                                                <input type="text" class="form-control" id="nome" name="nome" autocomplete="off" required>
+                                                <input type="text" class="form-control" id="nome" name="nome" value="{{ usuario is defined ? usuario.nome : ''}}" autocomplete="off" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label class="form-label" for="cnpj">E-mail</label>
-                                                <input type="text" class="form-control" id="email" name="email" autocomplete="off" required>
+                                                <input type="text" class="form-control" id="email" name="email" value="{{ usuario is defined ? usuario.email : ''}}" autocomplete="off" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -52,8 +55,8 @@
                                                 <label class="form-label" for="cnpj">Tipo do Usuario</label>
                                                 <select class="form-control" name="tipo_usuario" id="tipo_usuario" required autofocus>
                                                 <option value=""></option>
-                                                {% for tipo in tiposUsuarios %}}
-                                                    <option value="{{ tipo.id }}">{{ tipo.nome }}</option>
+                                                {% for tipo in tipo_usuario %}}
+                                                    <option value="{{ tipo.id }}"{{ usuario is defined and usuario.tipo_usuario_id == tipo.id ? ' selected' : ''}}>{{ tipo.nome }}</option>
                                                 {% endfor %}}
                                                 </select>
                                             </div>

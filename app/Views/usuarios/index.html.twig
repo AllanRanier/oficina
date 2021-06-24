@@ -28,28 +28,27 @@
 							<tr>
 								<th>Nome</th>
 								<th>E-mail</th>
-								<th>Ativo</th>
 								<th>Ações</th>
 							</tr>
 						</thead>
 
-						{# <tbody>
+						<tbody>
 							{% for row in usuarios %}
 								<tr>
-									<td>{{ row.username }}</td>
+
+									<td>{{ row.nome }}</td>
 									<td>{{ row.email }}</td>
-									<td>{{ row.active }}</td>
 									<td>
-										<a title="Editar" href="" class="btn btn-sm btn-primary">
+										<a title="Editar" href="{{base_url(baseUrl)}}/editar/{{row.id}}" class="btn btn-sm btn-primary">
 											<i class="fas fa-user-edit"></i>
 										</a>&nbsp;
-										<a title="Excluir" href="" class="btn btn-sm btn-danger">
+										<a title="Excluir" class="btn btn-sm btn-danger" href="{{base_url(baseUrl)}}/excluir/{{row.id}}">
 											<i class="fas fa-user-times"></i>
 										</a>
 									</td>
 								</tr>
 							{% endfor %}
-						</tbody> #}
+						</tbody>
 					</table>
 				</div>
 			</div>
