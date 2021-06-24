@@ -44,7 +44,7 @@ class UsuariosController extends BaseController
 
         return $this->twig->render('usuarios/form.html.twig', [
             'title' => 'Adicionar novo Usuario',
-            'tiposUsuarios' => $tipo_usuarios,
+            'tipo_usuario' => $tipo_usuarios,
             'base_url' => $base_url
         ]);
     }
