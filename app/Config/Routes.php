@@ -32,7 +32,8 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'AuthController::index');
+$routes->get('/', 'Auth::index');
+$routes->post('/login', 'Auth::logar');
 
 
 $routes->get('/dashboard', 'DashboardController::index');
@@ -45,11 +46,20 @@ $routes->get('/estoque', 'EstoqueController::index');
 
 $routes->get('/fornecedor', 'FornecedorController::index');
 
-$routes->get('/usuario', 'UsuariosController::index');
-$routes->get('/usuario/novo', 'UsuariosController::create');
-$routes->post('/usuario/save', 'UsuariosController::save');
-$routes->get('/usuario/excluir/(:alphanum)', 'UsuariosController::delete/$1');
-$routes->get('/usuario/editar/(:alphanum)', 'UsuariosController::update/$1');
+$routes->group('usuario',['filter' => 'authFilter'], function($routes){
+	$routes->get('', 'UsuariosController::index');
+	$routes->get('novo', 'UsuariosController::create');
+	$routes->get('editar/(:alphanum)', 'UsuariosController::update/$1');
+	$routes->post('save', 'UsuariosController::save');
+	$routes->get('excluir/(:alphanum)', 'UsuariosController::delete/$1');
+
+});
+
+// $routes->get('/usuario', 'UsuariosController::index');
+// $routes->get('/usuario/novo', 'UsuariosController::create');
+// $routes->post('/usuario/save', 'UsuariosController::save');
+// $routes->get('/usuario/excluir/(:alphanum)', 'UsuariosController::delete/$1');
+// $routes->get('/usuario/editar/(:alphanum)', 'UsuariosController::update/$1');
 
 
 /*
