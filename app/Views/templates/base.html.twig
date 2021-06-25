@@ -1,96 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Sistema - Auto-Oficina</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            Sistema - Auto-Oficina
+        </title>
 
-		<!-- Google Font: Source Sans Pro -->
-		<link
-		rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-		<!-- Font Awesome -->
-		<link
-		rel="stylesheet" href="{{base_url('assets/vendor/fontawesome-free/css/all.min.css')}}">
-		<!-- Ionicons -->
-		<link
-		rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-		<!-- Tempusdominus Bootstrap 4 -->
-		<link
-		rel="stylesheet" href="{{base_url('assets/vendor/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
-		<!-- iCheck -->
-		<link
-		rel="stylesheet" href="{{base_url('assets/vendor/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-		<!-- JQVMap -->
-		<link
-		rel="stylesheet" href="{{base_url('assets/vendor/jqvmap/jqvmap.min.css')}}">
-		<!-- Theme style -->
-		<link
-		rel="stylesheet" href="{{base_url('assets/css/adminlte.min.css')}}">
-		<!-- overlayScrollbars -->
-		<link
-		rel="stylesheet" href="{{base_url('assets/vendor/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
-		<!-- Daterange picker -->
-		<link
-		rel="stylesheet" href="{{base_url('assets/vendor/daterangepicker/daterangepicker.css')}}">
-		<!-- summernote -->
-		<link rel="stylesheet" href="{{base_url('assets/vendor/summernote/summernote-bs4.min.css')}}">
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{ base_url('assets/vendor/fontawesome-free/css/all.min.css') }}">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- Tempusdominus Bootstrap 4 -->
+        <link rel="stylesheet" href="{{ base_url('assets/vendor/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+        <!-- iCheck -->
+        <link rel="stylesheet" href="{{ base_url('assets/vendor/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+        <!-- JQVMap -->
+        <link rel="stylesheet" href="{{ base_url('assets/vendor/jqvmap/jqvmap.min.css') }}">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="{{ base_url('assets/css/adminlte.min.css') }}">
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="{{ base_url('assets/vendor/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+        <!-- Daterange picker -->
+        <link rel="stylesheet" href="{{ base_url('assets/vendor/daterangepicker/daterangepicker.css') }}">
+        <!-- summernote -->
+        <link rel="stylesheet" href="{{ base_url('assets/vendor/summernote/summernote-bs4.min.css') }}">
 
-	</head>
+    </head>
 
-	<body class="hold-transition sidebar-mini layout-fixed">
-		<div
-			class="wrapper">
-			<!-- Sidebar -->
-			{% include '/templates/includes/_topbar.html.twig' %}
+    <body class="hold-transition sidebar-mini layout-fixed">
+        <div class="wrapper">
+            <!-- Sidebar -->
+            {% include '/templates/includes/_topbar.html.twig' %}
 
-			<div class="content-wrapper"> 
-				<div class="content-header">
-					{% include '/templates/includes/_sideBar.html.twig'%}
-					{% block content %}{% endblock %}
-				</div>
-			</div>
-			{% include '/templates/includes/_footer.html.twig' %}
-		</div>
+            <div class="content-wrapper">
+                <div class="content-header">
+                    {% include '/templates/includes/_sideBar.html.twig' %}
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+            {% include '/templates/includes/_footer.html.twig' %}
+        </div>
 
-
-		<!-- jQuery -->
-		<script src="{{base_url('assets/vendor/jquery/jquery.min.js')}}"></script>
-		<!-- jQuery UI 1.11.4 -->
-		<script src="{{base_url('assets/vendor/jquery-ui/jquery-ui.min.js')}}"></script>
-		<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-		<script>
+        <!-- jQuery -->
+        <script src="{{ base_url('assets/vendor/jquery/jquery.min.js') }}"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="{{ base_url('assets/vendor/jquery-ui/jquery-ui.min.js') }}"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
 			$.widget.bridge('uibutton', $.ui.button)
 		</script>
-		<!-- Bootstrap 4 -->
-		<script src="{{base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-		<!-- ChartJS -->
-		<!-- Sparkline -->
-		<script src="{{base_url('assets/vendor/sparklines/sparkline.js')}}"></script>
-		<!-- JQVMap -->
-		<!-- jQuery Knob Chart -->
-		<!-- daterangepicker -->
-		<script src="{{base_url('assets/vendor/moment/moment.min.js')}}"></script>
-		<script src="{{base_url('assets/vendor/daterangepicker/daterangepicker.js')}}"></script>
-		<!-- Tempusdominus Bootstrap 4 -->
-		<script src="{{base_url('assets/vendor/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
-		<!-- Summernote -->
-		<script src="{{base_url('assets/vendor/summernote/summernote-bs4.min.js')}}"></script>
-		<!-- overlayScrollbars -->
-		<script src="{{base_url('assets/vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
-		<!-- AdminLTE App -->
-		<script src="{{base_url('assets/js/adminlte.js')}}"></script>
-		<!-- AdminLTE for demo purposes -->
-		<script src="{{base_url('assets/js/demo.js')}}"></script>
-		<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-		<script src="{{base_url('assets/js/pages/dashboard.js')}}"></script>
+        <!-- Bootstrap 4 -->
+        <script src="{{ base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <!-- ChartJS -->
+        <!-- Sparkline -->
+        <script src="{{ base_url('assets/vendor/sparklines/sparkline.js') }}"></script>
+        <!-- JQVMap -->
+        <!-- jQuery Knob Chart -->
+        <!-- daterangepicker -->
+        <script src="{{ base_url('assets/vendor/moment/moment.min.js') }}"></script>
+        <script src="{{ base_url('assets/vendor/daterangepicker/daterangepicker.js') }}"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="{{ base_url('assets/vendor/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+        <!-- Summernote -->
+        <script src="{{ base_url('assets/vendor/summernote/summernote-bs4.min.js') }}"></script>
+        <!-- overlayScrollbars -->
+        <script src="{{ base_url('assets/vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+        <!-- AdminLTE App -->
+        <script src="{{ base_url('assets/js/adminlte.js') }}"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="{{ base_url('assets/js/demo.js') }}"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="{{ base_url('assets/js/pages/dashboard.js') }}"></script>
 
-		{# <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script> #}
+        {# <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script> #}
 
-		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-		<!-- Adicionando JQuery -->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-		<script>
+        <!-- Adicionando JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script>
 			$(document).ready(function() {
 
 				function limpa_formulário_cep() {
@@ -151,7 +142,20 @@
 
 		</script>
 
-		<script src="{{ base_url('assets/js/inputmask/jquery.inputmask.min.js') }}"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 
+		<script>
+		$(document).ready(function(){
+			//Telefone
+			$("#telefone").mask("(99) 99999-9999");
+
+			//CEP
+			$("#cep").mask("99999-999");
+
+			//CPF
+			$("#cpf").mask("999.999.999-99");
+		</script>
+	
 	</body>
 </html>

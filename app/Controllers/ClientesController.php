@@ -43,7 +43,7 @@ class ClientesController extends BaseController
         ]);
     }
 
-     /**
+    /**
      * Carrega o formulario para alterar o CLiente
      *
      * @param string $id

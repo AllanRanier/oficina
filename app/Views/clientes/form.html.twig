@@ -104,30 +104,3 @@
         </div>           
     </section>
 {% endblock %}    
-
-{% block script %}
-
-	<script type="text/javascript">
-		var Page = function () {
-			var _components = function () {
-				$('#telefone').inputmask({
-					mask: [
-						"(99) 9999-9999", "(99) 99999-9999"
-					],
-					keepStatic: true
-				});
-				$('#cpf').inputmask('999.999.999-99');
-				$('#cep').inputmask('99999-999');
-			};
-						return {
-				init: function () {
-					_components();
-				}
-			}
-		}();
-		
-		document.addEventListener('DOMContentLoaded', function () {
-			Page.init();
-		});
-	</script>
-{% endblock %}
