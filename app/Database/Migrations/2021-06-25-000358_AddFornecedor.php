@@ -32,7 +32,7 @@ class AddFornecedor extends Migration
 				'type' => 'VARCHAR',
 				'constraint' => '20',
 			],				
-			'rua' => [
+			'logradouro' => [
 				'type' => 'VARCHAR',
 				'constraint' => '100',
 			],				
