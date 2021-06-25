@@ -9,6 +9,7 @@ class ClientesModel extends Model{
     protected $primaryKey = 'id';
     protected $allowedFields = [
         'nome',
+        'email',
         'cpf',
         'cep',
         'logradouro',

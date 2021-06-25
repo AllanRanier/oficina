@@ -42,6 +42,9 @@ $routes->group('dashboard',['filter' => 'authFilter'], function($routes){
 $routes->group('clientes',['filter' => 'authFilter'], function($routes){
 	$routes->get('', 'ClientesController::index');
 	$routes->get('novo', 'ClientesController::create');
+	$routes->post('save', 'ClientesController::save');
+	$routes->get('excluir/(:alphanum)', 'ClientesController::delete/$1');
+	$routes->get('editar/(:alphanum)', 'ClientesController::update/$1');
 
 });
 

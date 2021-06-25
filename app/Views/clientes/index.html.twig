@@ -37,11 +37,15 @@
 						</thead>
 
 						<tbody>
-							{# {% for row in usuarios %}
+							{% for row in cliente %}
 								<tr>
 
 									<td>{{ row.nome }}</td>
 									<td>{{ row.email }}</td>
+									<td>{{ row.cpf }}</td>
+									<td>{{ row.telefone }}</td>
+									<td>{{ row.logradouro }}</td>
+									<td>{{ row.cidade }}</td>
 									<td>
 										<a title="Editar" href="{{base_url(baseUrl)}}/editar/{{row.id}}" class="btn btn-sm btn-primary">
 											<i class="fas fa-user-edit"></i>
@@ -51,7 +55,7 @@
 										</a>
 									</td>
 								</tr>
-							{% endfor %} #}
+							{% endfor %}
 						</tbody>
 					</table>
 				</div>
