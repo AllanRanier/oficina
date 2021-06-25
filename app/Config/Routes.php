@@ -35,16 +35,28 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Auth::index');
 $routes->post('/login', 'Auth::logar');
 
+$routes->group('dashboard',['filter' => 'authFilter'], function($routes){
+	$routes->get('', 'DashboardController::index');
 
-$routes->get('/dashboard', 'DashboardController::index');
+});
+$routes->group('clientes',['filter' => 'authFilter'], function($routes){
+	$routes->get('', 'ClientesController::index');
+	$routes->get('novo', 'ClientesController::create');
 
-$routes->get('/clientes', 'ClienteController::index');
+});
 
-$routes->get('/vendas', 'VendasController::index');
+$routes->group('vendas',['filter' => 'authFilter'], function($routes){
+	$routes->get('', 'VendasController::index');
+});
 
-$routes->get('/estoque', 'EstoqueController::index');
+$routes->group('estoque',['filter' => 'authFilter'], function($routes){
+	$routes->get('', 'EstoqueController::index');
+});
 
-$routes->get('/fornecedor', 'FornecedorController::index');
+
+$routes->group('fornecedor',['filter' => 'authFilter'], function($routes){
+	$routes->get('', 'FornecedorController::index');
+});
 
 $routes->group('usuario',['filter' => 'authFilter'], function($routes){
 	$routes->get('', 'UsuariosController::index');

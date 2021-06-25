@@ -1,0 +1,112 @@
+{% extends 'templates/base.html.twig' %}
+
+{% block content %}
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>{{title}}</h1>
+                </div>           
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- jquery validation -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row justify-content-end ">
+                                <a class="btn btn-sm btn-primary" href="/clientes">Voltar</a>
+                            </div>
+                        </div>                 
+                        <form id="form" method="post" class="form-validate" action="/UsuariosController/save">
+                            <div class="card-body">
+                                {# <div class="form-row"> #}
+                                    <div class="row g-4">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                            	{# {% if usuario %}
+						                            <input type="hidden" name="id" value="{{ usuario.id }}"/>
+					                            {% endif %} #}
+                                                <label class="form-label" for="cnpj">Nome</label>
+                                                <input type="text" class="form-control" id="nome" name="nome"  autocomplete="off" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="cnpj">E-mail</label>
+                                                <input type="text" class="form-control" id="email" name="email" autocomplete="off" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="cnpj">CPF</label>
+                                                <input type="text" class="form-control" id="cpf" name="cpf" autocomplete="off" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-4">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="cnpj">Telefone</label>
+                                                <input type="text" class="form-control" id="telefone" name="telefone" autocomplete="off" required>
+                                            </div>
+                                        </div>                                       
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="cnpj">CEP</label>
+                                                <input type="text" class="form-control cep-mask" id="cep" name="cep"  autocomplete="off" required>
+                                            </div>
+                                        </div>                                       
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="cnpj">Logradouro</label>
+                                                <input type="text" class="form-control" id="logradouro" name="logradouro" autocomplete="off" required>
+                                            </div>
+                                        </div>                                       
+                                    </div>
+                                    <div class="row g-4">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="cnpj">Bairro</label>
+                                                <input type="text" class="form-control" id="bairro" name="bairro" autocomplete="off" required>
+                                            </div>
+                                        </div>                                       
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="cnpj">Cidade</label>
+                                                <input type="text" class="form-control" id="cidade" name="cidade" autocomplete="off" required>
+                                            </div>
+                                        </div>                                       
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="cnpj">Número</label>
+                                                <input type="text" class="form-control" id="numero" name="numero" autocomplete="off" required>
+                                            </div>
+                                        </div>                                       
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">
+                                        Salvar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div>
+        </div>           
+    </section>
+{% endblock %}    
+
+{# {% block script %}
+	<script type="text/javascript">
+        jQuery("#cpf").mask("999.999.999-99");
+    </script>
+{% endblock %}   #}

@@ -10,7 +10,7 @@ class DashboardController extends BaseController
 
 	public function index()
 	{
-		return $this->twig->render("Dashboard/index.html.twig",[
+		return $this->twig->render("dashboard/index.html.twig",[
 			'title' => 'DashBoard'
 		]);
 	}
