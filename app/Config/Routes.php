@@ -43,7 +43,7 @@ $routes->group('clientes',['filter' => 'authFilter'], function($routes){
 	$routes->get('', 'ClientesController::index');
 	$routes->get('novo', 'ClientesController::create');
 	$routes->post('save', 'ClientesController::save');
-	$routes->get('excluir/(:alphanum)', 'ClientesController::delete/$1');
+	$routes->post('excluir/(:alphanum)', 'ClientesController::delete/$1');
 	$routes->get('editar/(:alphanum)', 'ClientesController::update/$1');
 
 });
@@ -66,7 +66,7 @@ $routes->group('usuario',['filter' => 'authFilter'], function($routes){
 	$routes->get('novo', 'UsuariosController::create');
 	$routes->get('editar/(:alphanum)', 'UsuariosController::update/$1');
 	$routes->post('save', 'UsuariosController::save');
-	$routes->get('excluir/(:alphanum)', 'UsuariosController::delete/$1');
+	$routes->post('excluir/(:alphanum)', 'UsuariosController::delete/$1');
 
 });
 

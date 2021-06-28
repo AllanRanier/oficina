@@ -8,7 +8,7 @@ use App\Models\UsuarioModel;
 class UsuariosController extends BaseController
 {
     protected $tipoUsuarioModel;
-    protected $base_url = 'usuario/';
+    protected $base_url = '/usuario';
     protected $UsuarioModel;
 
     public function __construct(){
@@ -28,7 +28,7 @@ class UsuariosController extends BaseController
 		return $this->twig->render("usuarios/index.html.twig",[
 			'title' => 'Usuários',
 			'usuarios' => $usuarios,
-			'baseUrl' => $this->base_url,
+			'baseRoute' => $this->base_url,
 		]);
 	}
     /**
@@ -45,7 +45,7 @@ class UsuariosController extends BaseController
         return $this->twig->render('usuarios/form.html.twig', [
             'title' => 'Adicionar novo Usuario',
             'tipo_usuario' => $tipo_usuarios,
-            'base_url' => $base_url
+            'baseRoute' => $base_url
         ]);
     }
 
@@ -58,13 +58,14 @@ class UsuariosController extends BaseController
     public function update(string $id){
         $usuario = $this->UsuarioModel->find($id);
         $tipo_usuarios = $this->tipoUsuarioModel->find();
+        $base_url = '/usuario'; 
         
         if(!$usuario){
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Usuario não existe');
         }
 
         return $this->twig->render('usuarios/form.html.twig', [
-            'baseRoute' => $this->base_url,
+            'baseRoute' => $base_url,
             'title' => 'Editar Usuario',
             'usuario' => $usuario,
             'tipo_usuario' => $tipo_usuarios

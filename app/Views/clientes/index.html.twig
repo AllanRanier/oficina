@@ -1,5 +1,9 @@
 {% extends 'templates/base.html.twig'%}
 
+{% block script %}
+
+{% endblock %}
+
 {% block content %}
 
 
@@ -50,7 +54,7 @@
 										<a title="Editar" href="{{base_url(baseUrl)}}/editar/{{row.id}}" class="btn btn-sm btn-primary">
 											<i class="fas fa-user-edit"></i>
 										</a>&nbsp;
-										<a title="Excluir" class="btn btn-sm btn-danger" href="{{base_url(baseUrl)}}/excluir/{{row.id}}">
+										<a title="Excluir" class="btn btn-sm btn-danger" onclick="AlertaExcluirCliente({{ row.id }});">
 											<i class="fas fa-user-times"></i>
 										</a>
 									</td>
