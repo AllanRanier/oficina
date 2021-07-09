@@ -59,6 +59,8 @@ $routes->group('estoque',['filter' => 'authFilter'], function($routes){
 
 $routes->group('fornecedor',['filter' => 'authFilter'], function($routes){
 	$routes->get('', 'FornecedorController::index');
+	$routes->get('novo', 'FornecedorController::create');
+	$routes->get('save', 'FornecedorController::save');
 });
 
 $routes->group('usuario',['filter' => 'authFilter'], function($routes){
