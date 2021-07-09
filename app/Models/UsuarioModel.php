@@ -14,6 +14,11 @@ class UsuarioModel extends Model{
         'tipo_usuario_id',
     ];
 
+    /** 
+     * 
+     *  Fazendo o Join com a tabela tipo_usuario
+     * 
+     **/
     public function getUsuario(){
         return $this->db->table("usuario as u")
                         ->select("u.nome, u.email, tu.nome as tipo_usuario")
