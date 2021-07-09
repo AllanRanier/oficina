@@ -19,7 +19,7 @@ class UsuarioModel extends Model{
                         ->select("u.nome, u.email, tu.nome as tipo_usuario")
                         ->join("tipo_usuario as tu", "tu.id = u.tipo_usuario_id")
                         ->get()
-                        ->getRow();
+                        ->getResult();
     }
 
     protected $returnType = 'object';

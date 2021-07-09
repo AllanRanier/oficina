@@ -33,13 +33,13 @@
 						                            <input type="hidden" name="id" value="{{ usuario.id }}"/>
 					                            {% endif %}
                                                 <label class="form-label" for="cnpj">Nome</label>
-                                                <input type="text" class="form-control" id="nome" name="nome" value="{{ usuario is defined ? usuario.nome : ''}}" autocomplete="off" required>
+                                                <input type="text" class="form-control" id="nome" name="nome" value="{{ usuario is defined ? usuario.nome : ''}}" placeholder="Ex: Mario da Silva" autocomplete="off" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label class="form-label" for="cnpj">E-mail</label>
-                                                <input type="text" class="form-control" id="email" name="email" value="{{ usuario is defined ? usuario.email : ''}}" autocomplete="off" required>
+                                                <input type="text" class="form-control" id="email" name="email" value="{{ usuario is defined ? usuario.email : ''}}" placeholder="Ex: exemplo@exemplo.com" autocomplete="off" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -54,10 +54,10 @@
                                             <div class="form-group">
                                                 <label class="form-label" for="cnpj">Tipo do Usuario</label>
                                                 <select class="form-control" name="tipo_usuario" id="tipo_usuario" required autofocus>
-                                                <option value=""></option>
-                                                {% for tipo in tipo_usuario %}}
-                                                    <option value="{{ tipo.id }}"{{ usuario is defined and usuario.tipo_usuario_id == tipo.id ? ' selected' : ''}}>{{ tipo.nome }}</option>
-                                                {% endfor %}}
+                                                    <option value="">Selecionar</option>
+                                                    {% for tipo in tipo_usuario %}}
+                                                        <option value="{{ tipo.id }}"{{ usuario is defined and usuario.tipo_usuario_id == tipo.id ? ' selected' : ''}}>{{ tipo.nome }}</option>
+                                                    {% endfor %}}
                                                 </select>
                                             </div>
                                         </div>                                       

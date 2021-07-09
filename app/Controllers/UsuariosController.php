@@ -20,14 +20,22 @@ class UsuariosController extends BaseController
      *
      * @return void
      */
-	public function index()
+	public function index()   
 	{
-		$usuarios = $this->UsuarioModel->findAll();
+
+        $tipoDoUsuario = $this->UsuarioModel->getUsuario();
+        // dd($teste);
+
+		$usuario = $this->UsuarioModel->findAll();
+
+        // foreach($usuario as $usuarios){
+        //     $usuarios->tipo_usuario_id = $tipoDoUsuario->tipo_usuario;
+        // }
         // dd($usuarios);
 
 		return $this->twig->render("usuarios/index.html.twig",[
 			'title' => 'Usuários',
-			'usuarios' => $usuarios,
+			'usuarios' => $tipoDoUsuario,
 			'baseRoute' => $this->base_url,
 		]);
 	}
@@ -37,7 +45,8 @@ class UsuariosController extends BaseController
      * @return void
      */
 	public function create()
-    {
+    {   
+      
 
         $tipo_usuarios = $this->tipoUsuarioModel->findall();
         $base_url = '/usuario';   
