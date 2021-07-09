@@ -1,0 +1,63 @@
+{% extends 'templates/base.html.twig'%}
+
+{% block content %}
+
+
+<!-- Begin Page Content -->
+	<div class="content-header">
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>{{title}}</h1>
+					</div>           
+				</div>
+			</div><!-- /.container-fluid -->
+		</section>
+		
+		<div class="card shadow mb-4">
+			<div class="card-header">
+				<div class="row justify-content-end ">
+					<a class="btn btn-sm btn-primary" href="{{base_url(baseUrl)}}/novo">Cadastrar Fornecedor</a>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>E-mail</th>
+								<th>Telefone</th>
+								<th>CNPJ</th>
+								<th>Cidade</th>
+								<th>Logradouro</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<td>Nome Fornecedor</td>
+							<td>Email@email.com</td>
+							<td>(99) 9.9999-9999</td>
+							<td>999999999</td>
+							<td>São Paulo</td>
+							<td>Av. Paulo</td>
+							<td>
+								<a title="Editar" class="btn btn-sm btn-primary">
+									<i class="fas fa-user-edit"></i>
+									</a>&nbsp;
+									<a title="Excluir" class="btn btn-sm btn-danger" onclick="AlertaExcluirUsuario();">
+										<i class="fas fa-user-times"></i>
+									</a>
+							</td>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- /.container-fluid -->
+
+{% endblock %}
