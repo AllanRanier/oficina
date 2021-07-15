@@ -3,14 +3,12 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class EstoqueModel extends Model{
+class ServicoModel extends Model{
 
-    protected $table = 'estoque';
+    protected $table = 'servico';
     protected $primaryKey = 'id';
     protected $allowedFields = [
-        'produto',
-        'fornecedor_id',
-        'quantidade',
+        'nome'
     ];
 
     protected $returnType = 'object';
