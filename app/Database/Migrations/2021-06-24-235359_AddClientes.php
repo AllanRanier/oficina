@@ -47,7 +47,8 @@ class AddClientes extends Migration
 			'numero' => [
 				'type' => 'VARCHAR',
 				'constraint' => '20',
-			],				
+			],	
+			'created_at date DEFAULT current_date NOT NULL '			
 		]);
 		$this->forge->addKey('id', true);
 		$this->forge->createTable('clientes');

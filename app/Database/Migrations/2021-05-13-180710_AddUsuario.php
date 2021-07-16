@@ -26,7 +26,8 @@ class AddUsuario extends Migration
 			],		
 			'tipo_usuario_id' => [
 				'type' => 'INT',
-			],		
+			],
+			'created_at date DEFAULT current_date NOT NULL '		
 		]);
 		$this->forge->addKey('id', true);
 		$this->forge->addKey('nome');
