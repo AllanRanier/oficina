@@ -1,9 +1,5 @@
 {% extends 'templates/base.html.twig'%}
 
-{% block script %}
-
-{% endblock %}
-
 {% block content %}
 
 
@@ -22,7 +18,7 @@
 		<div class="card shadow mb-4">
 			<div class="card-header">
 				<div class="row justify-content-end ">
-					<a class="btn btn-sm btn-primary" href="/clientes/novo">Novo Cliente</a>
+					<a class="btn btn-sm btn-primary" href="/servicos/novo">Novo Serviço</a>
 				</div>
 			</div>
 			<div class="card-body">
@@ -31,30 +27,21 @@
 						<thead>
 							<tr>
 								<th>Nome</th>
-								<th>E-mail</th>
-								<th>CPF</th>
-								<th>Telefone</th>
-								<th>Logradouro</th>
-								<th>Cidade</th>
-								<th>Ações</th>
+								<th class="text-right">Ações</th>
 							</tr>
 						</thead>
 
 						<tbody>
-							{% for row in cliente %}
+							{% for row in servico %}
 								<tr>
-
-									<td>{{ row.nome }}</td>
-									<td>{{ row.email }}</td>
-									<td>{{ row.cpf }}</td>
-									<td>{{ row.telefone }}</td>
-									<td>{{ row.logradouro }}</td>
-									<td>{{ row.cidade }}</td>
-									<td>
-										<a title="Editar" href="{{base_url(baseUrl)}}/editar/{{row.id}}" class="btn btn-sm btn-primary">
+									<td>{{ row.nome }}
+									
+									</td>
+									<td class="text-right">
+										<a title="Editar" href="{{base_url(baseRoute)}}/editar/{{row.id}}" class="btn btn-sm btn-primary">
 											<i class="fas fa-user-edit"></i>
 										</a>&nbsp;
-										<a title="Excluir" class="btn btn-sm btn-danger" onclick="AlertaExcluirCliente({{ row.id }});">
+										<a title="Excluir" class="btn btn-sm btn-danger" onclick="AlertaExcluirServicos({{ row.id }});">
 											<i class="fas fa-user-times"></i>
 										</a>
 									</td>
@@ -68,13 +55,13 @@
 
 	</div>
 	<!-- /.container-fluid -->
-
-	<script type="text/javascript">
-		function ExcluirCliente(id){
+	
+  	<script type="text/javascript">
+		function ExcluirServicos(id){
 			paramentros = {"id":id}
 			$.ajax({
 				data:paramentros,
-				url:'clientes/excluir/'+ id,
+				url:'servicos/excluir/'+ id,
 				type:'POST',
 				beforeSend:function(){},
 				success:function(){
@@ -86,7 +73,7 @@
 				}
 			})
 		}       
-		function AlertaExcluirCliente(id){
+		function AlertaExcluirServicos(id){
 			Swal.fire({
 				title: 'Deseja Excluir?',
 				text: "Você não poderá reverter isso!",
@@ -97,7 +84,7 @@
 				confirmButtonText: 'Sim, Desejo Apagar!'
 			}).then((result) => {
 				if (result.isConfirmed) {
-					ExcluirCliente(id);
+					ExcluirServicos(id);
 					window.location.reload();								
 				}
 			})
@@ -113,6 +100,5 @@
                 imer: 1500
                 })
         {% endif %}
-</script>		
-
+</script>	
 {% endblock %}

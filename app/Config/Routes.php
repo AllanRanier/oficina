@@ -48,20 +48,19 @@ $routes->group('clientes',['filter' => 'authFilter'], function($routes){
 
 });
 
-$routes->group('vendas',['filter' => 'authFilter'], function($routes){
-	$routes->get('', 'VendasController::index');
+$routes->group('orcamento',['filter' => 'authFilter'], function($routes){
+	$routes->get('', 'OrcamentoController::index');
 });
 
-$routes->group('estoque',['filter' => 'authFilter'], function($routes){
-	$routes->get('', 'EstoqueController::index');
+$routes->group('servicos',['filter' => 'authFilter'], function($routes){
+	$routes->get('', 'ServicoController::index');
+	$routes->get('novo', 'ServicoController::create');
+	$routes->get('editar/(:alphanum)', 'ServicoController::update/$1');
+	$routes->post('save', 'ServicoController::save');
+	$routes->post('excluir/(:alphanum)', 'ServicoController::delete/$1');
 });
 
 
-$routes->group('fornecedor',['filter' => 'authFilter'], function($routes){
-	$routes->get('', 'FornecedorController::index');
-	$routes->get('novo', 'FornecedorController::create');
-	$routes->get('save', 'FornecedorController::save');
-});
 
 $routes->group('usuario',['filter' => 'authFilter'], function($routes){
 	$routes->get('', 'UsuariosController::index');

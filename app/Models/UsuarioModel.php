@@ -21,7 +21,7 @@ class UsuarioModel extends Model{
      **/
     public function getUsuario(){
         return $this->db->table("usuario as u")
-                        ->select("u.nome, u.email, tu.nome as tipo_usuario")
+                        ->select("u.id,u.nome, u.email, tu.nome as tipo_usuario")
                         ->join("tipo_usuario as tu", "tu.id = u.tipo_usuario_id")
                         ->get()
                         ->getResult();

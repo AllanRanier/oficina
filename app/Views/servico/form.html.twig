@@ -1,0 +1,53 @@
+{% extends 'templates/base.html.twig' %}
+
+{% block content %}
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>{{title}}</h1>
+                </div>           
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- jquery validation -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row justify-content-end ">
+                                <a class="btn btn-sm btn-primary" href="/servicos">Voltar</a>
+                            </div>
+                        </div>                 
+                        <form id="form" method="post" class="form-validate" action="{{base_url(baseRoute)}}/save">
+                            <div class="card-body">
+                                <div class="row g-4">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            {% if servico %}
+                                                <input type="hidden" name="id" value="{{ servico.id }}"/>
+                                            {% endif %}
+                                            <label class="form-label" for="cnpj">Nome</label>
+                                            <input type="text" class="form-control" id="nome" name="nome" value="{{ servico is defined ? servico.nome : ''}}" placeholder="Ex: Manutenção" autocomplete="off" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">
+                                     Salvar
+                                </button>
+                            </div>
+                        </form>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div>
+        </div>           
+    </section>
+
+{% endblock %}      

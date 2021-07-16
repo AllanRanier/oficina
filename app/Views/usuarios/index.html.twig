@@ -58,5 +58,52 @@
 
 	</div>
 	<!-- /.container-fluid -->
+	
+	
+    {# <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> #}
+    <script type="text/javascript">		
+            function ExcluirUsuario(id){
+                paramentros = {"id":id}
+                $.ajax({
+                    data:paramentros,
+                    url:'usuario/excluir/'+ id,
+                    type:'POST',
+                    beforeSend:function(){},
+                    success:function(){
+                        Swal.fire(
+                        'Excluido!',
+                        'Excluido Com Sucesso!.',
+                        'success'
+                        )
+                    }
+                })
+            }       
+            function AlertaExcluirUsuario(id){
+                Swal.fire({
+                    title: 'Deseja Excluir?',
+                    text: "Você não poderá reverter isso!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sim, Desejo Apagar!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        ExcluirUsuario(id);
+                        window.location.reload();								
+                    }
+                })
+            }
+        {% if session.success_notice %}
+            {# alert('{{ session.success_notice }}'); #}
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: '{{ session.success_notice }}',
+                showConfirmButton: false,
+                imer: 1500
+                })
+        {% endif %}
+    </script>
 
 {% endblock %}

@@ -24,14 +24,6 @@ class UsuariosController extends BaseController
 	{
 
         $tipoDoUsuario = $this->UsuarioModel->getUsuario();
-        // dd($teste);
-
-		$usuario = $this->UsuarioModel->findAll();
-
-        // foreach($usuario as $usuarios){
-        //     $usuarios->tipo_usuario_id = $tipoDoUsuario->tipo_usuario;
-        // }
-        // dd($usuarios);
 
 		return $this->twig->render("usuarios/index.html.twig",[
 			'title' => 'Usuários',

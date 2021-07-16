@@ -50,11 +50,6 @@ class FornecedorController extends BaseController
             ];
             // dd($data);
 
-            if($this->request->getPost('senha')){
-                $senha = password_hash(trim($this->request->getPost('senha')), PASSWORD_DEFAULT);
-                $data['senha'] = $senha;
-            }
-
             if (\key_exists('id', $this->request->getPost()))
                 $data['id'] = $this->request->getPost('id');
 
