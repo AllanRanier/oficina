@@ -22,9 +22,15 @@ class AddOrcamento extends Migration
 				'type' => 'TEXT',
 				'null' => true,
 			],
-			'total' => [
+			'situacao' => [
 				'type' => 'VARCHAR',
-				'constraint' => '255',
+				'constraint' => '100',
+			],
+			'valor' => [
+				'type' => 'INT',
+			],
+			'total' => [
+				'type' => 'INT',
 			],
 			'created_at date DEFAULT current_date NOT NULL '
 		]);	

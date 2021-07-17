@@ -50,6 +50,10 @@ $routes->group('clientes',['filter' => 'authFilter'], function($routes){
 
 $routes->group('orcamento',['filter' => 'authFilter'], function($routes){
 	$routes->get('', 'OrcamentoController::index');
+	$routes->get('novo', 'OrcamentoController::create');
+	$routes->get('editar/(:alphanum)', 'OrcamentoController::update/$1');
+	$routes->post('save', 'OrcamentoController::save');
+	$routes->post('excluir/(:alphanum)', 'OrcamentoController::delete/$1');
 });
 
 $routes->group('servicos',['filter' => 'authFilter'], function($routes){

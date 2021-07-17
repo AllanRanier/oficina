@@ -1,0 +1,139 @@
+{% extends 'templates/base.html.twig' %}
+
+{% block content %}
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>{{title}}</h1>
+                </div>           
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- jquery validation -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row justify-content-end ">
+                                <a class="btn btn-sm btn-primary" href="/orcamento">Voltar</a>
+                            </div>
+                        </div>                 
+                        <form id="form" method="post" class="form-validate" action="{{base_url(baseRoute)}}/save">
+                            <div class="card-body">
+                                {# <div class="form-row"> #}
+                                    {# <div class="row g-4">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                            	{% if usuario %}
+						                            <input type="hidden" name="id" value="{{ usuario.id }}"/>
+					                            {% endif %}
+                                                <label class="form-label" for="cnpj">Nome</label>
+                                                <input type="text" class="form-control" id="nome" name="nome" value="{{ usuario is defined ? usuario.nome : ''}}" placeholder="Ex: Mario da Silva" autocomplete="off" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="cnpj">E-mail</label>
+                                                <input type="text" class="form-control" id="email" name="email" value="{{ usuario is defined ? usuario.email : ''}}" placeholder="Ex: exemplo@exemplo.com" autocomplete="off" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="cnpj">Senha</label>
+                                                <input type="password" class="form-control" id="senha" name="senha" autocomplete="off" required>
+                                            </div>
+                                        </div>
+                                    </div> #}
+                                    <div class="row g-4">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label">Clientes</label>
+                                                <select class="js-example-basic-single form-control" name="cliente" id="cliente" required autofocus>
+                                                    <option value="">Selecionar</option>
+                                                    {% for cliente in clientes %}}
+                                                        <option value="{{ cliente.id }}">{{ cliente.nome }}</option>
+                                                    {% endfor %}}
+                                                </select>
+                                            </div>
+                                        </div>                                       
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label">Serviços</label>
+                                                <select class="form-control mdb-select" name="servico" id="servico" data-live-search="true" required autofocus>
+                                                    <option value="">Selecionar</option>
+                                                    {% for servico in servicos %}}
+                                                        <option  value="{{ servico.id }}">{{ servico.nome }}</option>
+                                                    {% endfor %}}
+                                                </select>
+                                            </div>
+                                        </div>                                       
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label">Descrição</label>
+                                                <input type="text" class="form-control" id="descricao" name="descricao"  autocomplete="off" required>
+                                            </div>
+                                        </div>                                       
+                                    </div>
+
+                                    <div class="row g-4">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label">Situação</label>
+                                                <div class="form-group">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">À pagar</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio2">Pago</label>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        </div>                                                                                                                  
+                                    </div>
+
+                                    <div class="row g-4">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                            	{% if usuario %}
+						                            <input type="hidden" name="id" value="{{ usuario.id }}"/>
+					                            {% endif %}
+                                                <label class="form-label" for="cnpj">Nome</label>
+                                                <input type="text" class="form-control" id="nome" name="nome" value="{{ usuario is defined ? usuario.nome : ''}}" placeholder="Ex: Mario da Silva" autocomplete="off" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="cnpj">E-mail</label>
+                                                <input type="text" class="form-control" id="email" name="email" value="{{ usuario is defined ? usuario.email : ''}}" placeholder="Ex: exemplo@exemplo.com" autocomplete="off" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="cnpj">Senha</label>
+                                                <input type="password" class="form-control" id="senha" name="senha" autocomplete="off" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary">
+                                            Salvar
+                                        </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div>
+        </div>           
+    </section>
+{% endblock %}      
